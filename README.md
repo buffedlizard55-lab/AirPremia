@@ -6,7 +6,7 @@ A research-backed, fully sourced toolkit for requesting a **full or partial refu
 
 - `index.html` — the site. Static HTML, no build step, no dependencies.
 - [`verification.md`](verification.md) — the line-by-line fact check: what was verified, how, and what could not be verified.
-- Re-verified **11 September 2026**.
+- Re-verified twice on **11 September 2026** (second pass logged in [`verification.md` §13](verification.md)).
 
 ---
 
@@ -48,6 +48,8 @@ The earlier version of this project was re-checked from scratch. It contained re
 7. **It silently tidied a quotation** from Air Premia's US tariff.
 
 Full detail in [`verification.md` §12](verification.md).
+
+A **second verification pass** later the same day re-fetched every official page again and found four more things, all fixed (see [`verification.md` §13](verification.md)): the US-tariff quotation had spliced two subparagraphs together; the Federal Register renumbering-pause flag was **resolved** (DOT extended it to 7 July 2027) and its source link was malformed; the US reservation numbers gained a second official source (SFO's own airline directory); and two smaller corrections — the Economy Flex Americas penalty may be denominated in euros, and Email 1 was reworded to make it unmistakably an inquiry ("please don't cancel anything or process a refund until I confirm it in writing").
 
 ## Publishing
 
