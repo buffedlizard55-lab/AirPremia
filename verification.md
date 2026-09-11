@@ -2,6 +2,7 @@
 
 **Verified on:** 11 September 2026
 **Scope:** every factual claim in `index.html`, re-checked from scratch this session.
+**Second pass:** later the same day (11 September 2026), every load-bearing claim was fetched and read again in a separate session — findings in §13. Four issues were found and fixed; everything else held.
 
 ## Method
 
@@ -92,9 +93,11 @@ The fee tables live on https://www.airpremia.com/ticket/fare?tab=fare&type=econo
 |---|---|---|---|---|---|
 | Economy35 | Lite | **190** | 180 EUR | 130 | — |
 | Economy35 | Standard | **140** | 130 EUR | 80 | — |
-| Economy35 | Flex | **130** | 120 EUR | 70 | — |
+| Economy35 | Flex | **130** ⚠ | 120 EUR | 70 | — |
 | Premia42 | Standard | **190** | 170 EUR | 110 | 90 |
 | Premia42 | Flex | **130** | 120 EUR | 70 | 50 |
+
+**⚠ Currency ambiguity, found on the second pass (11 Sep 2026).** The third-party corroboration renders the Economy35 Flex Americas figure as **€130**, not $130 — while the indexed official table appears to show a bare "130" (the Europe column is explicitly EUR). The difference is a few dollars at current rates, but the exact currency is **unconfirmed**. Run the official lookup widget for the routing and require Air Premia to quote the penalty in USD in writing (Email 1 already does).
 
 **Change fee, per one-way:**
 
@@ -153,7 +156,7 @@ Advance baggage: the equivalent page is linked from the seat page and follows th
 
 **Scheduling data, third-party, for context only:** a public flight-schedule aggregator shows Air Premia operating SFO→ICN on Mon/Wed/Thu/Fri/Sat through September 2026. This is **not** an official source and is **not** used to establish any operating date. Recorded because it is consistent with Saturdays operating.
 
-**Not found:** any notice covering 31 Oct 2026 or 22 Nov 2026, as of 11 Sep 2026. The notices index at https://www.airpremia.com/a/en/customer/notice renders its list with JavaScript, so I could not enumerate it exhaustively; I checked the SFO-route notices individually and via search instead. **This is a real gap — re-check that page before accepting any penalty.**
+**Not found:** any notice covering 31 Oct 2026 or 22 Nov 2026, as of 11 Sep 2026. On the second pass the notices index's **General** tab did render (latest item: notice 768, 11 Aug 2026 — an Ebola notice; nothing SFO-schedule-related newer than 777), but the **Schedule** tab still renders empty via plain fetch, so the schedule list could not be enumerated exhaustively; I checked the SFO-route notices individually and via search instead. **This is a real gap — re-check that page before accepting any penalty.**
 
 ---
 
@@ -194,15 +197,17 @@ Read in full this session; entirely absent from the previous version.
 
 Source: https://com.airpremiacdn.net/resources/onepoint/documents/YP-General%20Rules.pdf
 
+**Status upgraded to DIRECT on the second pass (11 Sep 2026): all 8 chunks of the PDF were fetched and read.** The refunds language is in **Rule 2 ("Standard Format of Electronic Rules"), Penalties (category 16), "Cancellation and refunds"** — the provision stating that "Rule 80 … and Rule 90 (Refunds) are applicable" to penalty fares. Rule 90 is cross-referenced (e.g. in Rule 20(C)) but its standalone text is not printed in this General Rules PDF; it lives in the airline's ATPCO rule database. The document cover confirms "Tariff No. YP1 … on behalf of Air Premia Inc. … between points in USA and points in Area 1/2/3" and "**Document Version No. 67 — Issue Date: July 06, 2022**"; a later page carries "DOT No. 947".
+
 | Claim | Status | Text found |
 |---|---|---|
-| Document identity | **DIRECT** | "Tariff No. YP1 … on behalf of Air Premia Inc. … between points in USA and points in Area 1/2/3". "**Document Version No. 67 — Issue Date: July 06, 2022**" |
-| Rule 90 death/illness full refund | **INDEXED** (official PDF) | "Rule 90 (Refunds) … (a) Voluntary cancellation by passenger prior to Departure — (1) Full refund will be made in the event of **death of illness** of the passenger or member of his immediate family, as substantiated by a medical certificate the ticket reissued in accordance with applicable tariffs, without incurring a penalty." |
-| Rule 90 upgrade credit | **INDEXED** (official PDF) | "(4) In the event of cancellation or failure to use confirmed space as ticketed, the full amount of the fare excluding the penalty can be used as a credit toward an upgrade to different and higher fare type as long as the seat is available." |
+| Death/illness full refund | **DIRECT** | category 16(a)(1): "Full refund will be made in the event of death of illness of the passenger or member of his immediate family, as substantiated by a medical certificate." ("death of illness" typo confirmed — it is Air Premia's.) |
+| Schedule-change penalty-free cancellation | **DIRECT** | category 16(a)(3): "If, after ticket issuance, schedule changes by YP create alterations to the ticketed itinerary which are unacceptable to the passenger, the passenger may cancel or have the ticket reissued in accordance with applicable tariffs, without incurring a penalty." |
+| Upgrade credit | **DIRECT** | category 16(a)(4): "the full amount of the fare excluding the penalty can be used as a credit toward an upgrade to different and higher fare type as long as the seat is available." |
 
-**⚠ Irregularity found and corrected.** The previous version quoted this as "death **or** illness". The document reads "death **of** illness" — a typo in Air Premia's own PDF. `index.html` now quotes it exactly, typo included, with a note, so a mismatch with the source does not look like an error on your part.
+**⚠ Irregularity found and corrected on the second pass.** The first revision spliced two subparagraphs into one "quote": it appended to clause (1) the words "the ticket reissued in accordance with applicable tariffs, without incurring a penalty" — which actually end clause (3), the schedule-change provision. `index.html` now quotes (1) and (3) separately and correctly.
 
-**⚠ Flag:** the document is dated **6 July 2022**. It may have been superseded.
+**⚠ Flag (unchanged):** the document is dated **6 July 2022**. It may have been superseded.
 
 ---
 
@@ -215,34 +220,41 @@ Source: https://com.airpremiacdn.net/resources/onepoint/documents/YP-General%20R
 | https://www.transportation.gov/airconsumer/file-consumer-complaint | **DIRECT** | "DOT requires airlines to **acknowledge consumer complaints within 30 days** of receiving them and to send consumers **written responses … within 60 days**." Postal address: Office of Aviation Consumer Protection, U.S. Department of Transportation, 1200 New Jersey Avenue, SE, Washington, DC 20590. Form: https://airconsumer.dot.gov/consumer/s/oacp-form. "Last updated: Friday, August 1, 2025". |
 | https://airconsumer.dot.gov/consumer/s/oacp-form | **DIRECT** | The filing form itself: "Office of Aviation Consumer Protection (OACP) — Complaint, Comment, and Compliment Form". Asks you to have booking details, flight details and a copy of the complaint you filed with the airline ready, because "you cannot save what you have entered in the form and come back later to complete it." Confirms the mailing address "Office of Aviation Consumer Protection, Office of the Secretary, W96-473, 1200 New Jersey Avenue, SE, Washington, D.C. 20590". OMB Control Number 2105-0568. |
 | https://consumer.ftc.gov/articles/using-credit-cards-and-disputing-charges | **DIRECT** | FCBA: "Send your letter so that it reaches the issuer **within 60 days after the first bill with the error was sent to you**." "Within **30 days** … the issuer must acknowledge it in writing." "Within **90 days** … the issuer must resolve the dispute." "you can withhold payment on the disputed amount … But you're expected to pay any part of the bill not in question". Credit balances: "the issuer must send it within **seven business days** after they get your written request", and a good-faith refund effort for balances held over six months. |
-| https://www.federalregister.gov/documents/2025-12-05/2025-22140/airline-refunds-and-other-consumer-protections | **INDEXED** (official .gov URL) | Document 2025-22140: "As of December 5, 2025, the Department is **pausing until June 30, 2026** the enforcement of airline refunds requirements … for flights that are operated under a different flight number … so long as the flights impose no significant change or delay". |
+| https://www.federalregister.gov/documents/2025/12/05/2025-22140/airline-refunds-and-other-consumer-protections | **DIRECT** (second pass; the first pass used a malformed URL — dashes instead of slashes in the date path — which 404s) | Document 2025-22140, 90 FR 55999: "As of December 5, 2025, the Department is **pausing until June 30, 2026** the enforcement of airline refunds requirements … for flights that are operated under a different flight number … so long as the flights impose no significant change or delay". |
+| https://www.federalregister.gov/documents/2026/07/07/2026-13675/airline-refunds-and-other-consumer-protections | **DIRECT** (second pass) | Document 2026-13675, 91 FR 41556, published 7 July 2026: "the Department is extending the pause … for 1-year from the date of this publication, **expiring on July 7, 2027**." RIN 2105-AF36 (Refund III still pending). |
 
-**⚠ Flag, unresolved.** The stated pause ran to **30 June 2026**, which has passed. **I could not verify whether a final Refund III rule was issued, or whether the pause was extended.** `index.html` says so rather than implying the rule is settled either way. Practical effect is small: Air Premia's notice 725 states its renumbering changed no times or operating days, so renumbering would not trigger a refund under either version of the rule.
+**✔ Flag resolved on the second pass (11 Sep 2026).** The first pass could not establish what replaced the pause after 30 June 2026. Answer found and read directly: **DOT extended the pause on 7 July 2026 for one year, to 7 July 2027** — it covers both of the user's travel dates. Practical effect unchanged: a bare renumbering is a non-trigger; significant changes (6+ hours international, airport change, more connections, downgrade) still require a refund.
 
 ---
 
 ## 9. Traveller reports — ANECDOTE (all quotations from search-indexed copies; Reddit blocks direct fetch with HTTP 403)
 
+**Second pass (11 Sep 2026): the four quotations below were re-verified verbatim against fresh search-indexed copies**, and two further items were found and added.
+
 | Thread | Quotation reproduced in `index.html` | Verified against index |
 |---|---|---|
-| [r/koreatravel 1j8ii8y](https://www.reddit.com/r/koreatravel/comments/1j8ii8y/whats_going_on_with_air_premias_sfo_to_icn_flights/) (Mar 2025) | "We ended up canceling our flight for full refund (thankfully booked through trip.com and their support let us do this). We booked a new flight on Cathay…" | ✅ matches, incl. spelling |
-| same thread | 17-hour return delay, "no compensation—no meal or accommodation vouchers, no refund" | ✅ matches |
-| [r/koreatravel 1jas53e](https://www.reddit.com/r/koreatravel/comments/1jas53e/air_premia_flight_changes/) (Mar 2025) | "Just called Air Premia and was able to change my flight a day earlier (Thursday flight) free of charge!" | ✅ matches |
-| same thread | "Try calling 917-503-9903 … the business hours are based in KST so I called around 9PM EST" | ✅ matches |
-| [r/koreatravel 18q01vn](https://www.reddit.com/r/koreatravel/comments/18q01vn/air_premia_refund_policy/) (Dec 2023) | "example: $1000 flight with $190 cancellation fee, you'll be refunded $810" | ✅ matches |
-| same thread | "if it hasn't been 24 hours since booking, you should be able to get a 100% refund due to USA laws" | ✅ matches |
+| [r/koreatravel 1j8ii8y](https://www.reddit.com/r/koreatravel/comments/1j8ii8y/whats_going_on_with_air_premias_sfo_to_icn_flights/) (Mar 2025) | "We ended up canceling our flight for full refund (thankfully booked through trip.com and their support let us do this). We booked a new flight on Cathay that leaves tonight…" | ✅ re-verified this session, incl. spelling |
+| same thread | 17-hour return delay, "no compensation—no meal or accommodation vouchers, no refund" | ✅ re-verified this session |
+| [r/koreatravel 1jas53e](https://www.reddit.com/r/koreatravel/comments/1jas53e/air_premia_flight_changes/) (Mar 2025) | "Just called Air Premia and was able to change my flight a day earlier (Thursday flight) free of charge!" | ✅ re-verified this session |
+| same thread | "Try calling 917-503-9903 … the business hours are based in KST so I called around 9PM EST" | ✅ re-verified this session |
+| same thread — **added on the second pass** | "Calling is a pain (automated af) and hours are korean time zone. 80$ fee and no waive even though they changed the flight" | ✅ re-verified; used as the balance note in the "free date change" card |
+| [r/koreatravel 18q01vn](https://www.reddit.com/r/koreatravel/comments/18q01vn/air_premia_refund_policy/) (Dec 2023) | "example: $1000 flight with $190 cancellation fee, you'll be refunded $810" | ✅ re-verified this session |
+| same thread | "if it hasn't been 24 hours since booking, you should be able to get a 100% refund due to USA laws" | ✅ re-verified this session |
 | [r/koreatravel 13f94yg](https://www.reddit.com/r/koreatravel/comments/13f94yg/air_premia_review_lax_to_icn/) (2023) | "Due to the type of ticket we had we would need to pay the cancellation fee and rebook at the lower rate… 'We don't charge you more when our fees go up.'" | ✅ matches |
 | same thread | "it took 2 weeks to reach someone in Korea" | ✅ matches |
 | [r/koreatravel 1gkn12n](https://www.reddit.com/r/koreatravel/comments/1gkn12n/air_premia_ewr_icn/) (Nov 2024) | "Haven't heard from them for a month… the insurance company finally agreed to pay for the expense that Air Premia refused to pay ($242 for two of us)" | ✅ matches |
-| [r/koreatravel 1j9c19a](https://www.reddit.com/r/koreatravel/comments/1j9c19a/air_premia_is_it_cheaper_to_just_not_show_up_to/) (Mar 2025) | "The cancellation fee for Lite is $190 … while no-show is $110" | ✅ matches — but see the conflict flagged in §3b |
+| [r/koreatravel 1j9c19a](https://www.reddit.com/r/koreatravel/comments/1j9c19a/air_premia_is_it_cheaper_to_just_not_show_up_to/) (Mar 2025) | "The cancellation fee for Lite is $190 until 1 hour before departure while no-show is $110" | ✅ re-verified this session — but see the conflict flagged in §3b |
+| [r/koreatravel 1s7j01g](https://www.reddit.com/r/koreatravel/comments/1s7j01g/air_premia_price_hike/) — **added on the second pass** | "i had a late night flight scheduled in Sept that they cancelled so they rescheduled me the first (and only) flight available the next day. Said it was due to a 'change of operational plan'" | ✅ verified against index; added to the sources table as route-instability context |
 | [r/koreatravel xqr1aw](https://www.reddit.com/r/koreatravel/comments/xqr1aw/anyone_familiar_with_air_premia/) (2022) | Last-minute cancellations, difficulty reaching support | ✅ consistent |
 | [r/koreatravel 152hsx5](https://www.reddit.com/r/koreatravel/comments/152hsx5/fuck_you_air_premia/) (Jul 2023) | "Air Premia changed my itinerary by more than a week… they absolutely refuse to pick up the … phone or answer their email" | ✅ matches |
 | [AirlineComplaints.org 40804](https://www.airlinecomplaints.org/showthread.php?p=40804) (Nov 2024) | "Air Premia refused to refund $572.30… I already filed a complaint with the DOT" | ✅ matches |
 | [r/personalfinance hvjvks](https://www.reddit.com/r/personalfinance/comments/hvjvks/i_cant_believe_i_actually_finally_got_fully/) (2020) | DOT complaint / card dispute produced refunds — **not Air Premia** | ✅ matches; labelled as not Air Premia |
-| [KAYAK Air Premia](https://www.kayak.com/AIR-PREMIA.YP.airline.html) | 8.1/10 from 106 reviews; page structured data `ratingCount: 106` | ✅ matches |
+| [KAYAK Air Premia](https://www.kayak.com/AIR-PREMIA.YP.airline.html) | First pass recorded "8.1/10 from 106 reviews" (structured data `ratingCount: 106`). **Second pass:** kayak.co.uk showed **8.2/10 from 87 ratings** — the figure drifts and varies by region. `index.html` now says "around 8/10" with the figure actually seen. | ✅ corrected |
 | [Yelp — Air Premia LA](https://www.yelp.com/biz/air-premia-los-angeles) | Third-party listing, LAX Terminal B | listing exists; not used as evidence |
+| [Facebook — Air Premia official page](https://www.facebook.com/airpremia.official/) — **checked on the second pass** | Page exists ("Page · Airline Company… is responsible for this Page"); shows "50% recommend (11 Reviews)". No refund-success stories accessible. | page metadata only |
+| [X — @AirPremiaThai](https://x.com/airpremiathai) — **checked on the second pass** | Official Thai-language support account (ticket changes/cancellations via Line OA). No refund-success stories accessible. | existence only |
 
-**Not found, and not invented:** verifiable refund-success posts on Facebook, X, or Google Maps reviews. Those platforms are not openly searchable from this environment. The previous version recorded the same gap; it remains accurate.
+**Not found, and not invented:** verifiable refund-success posts on Facebook, X, or Google Maps reviews. Those platforms are not openly searchable from this environment; the official Facebook page and X accounts were located, but their review/post contents could not be audited from here. The previous version recorded the same gap; it remains accurate.
 
 ---
 
@@ -267,7 +279,41 @@ Source: https://com.airpremiacdn.net/resources/onepoint/documents/YP-General%20R
 6. **Any notice covering 31 Oct or 22 Nov 2026** — none found as of 11 Sep 2026; the notices index is JavaScript-rendered and could not be enumerated exhaustively.
 7. **Air Premia's voluntary-refund processing time** — not published anywhere I could reach. No figure is quoted in `index.html`.
 8. **Your statement issue date** — needed to fix the FCBA deadline. Three scenarios are given instead of one invented date.
-9. **What happened to the DOT renumbering pause after 30 Jun 2026** — see §8.
+9. ~~**What happened to the DOT renumbering pause after 30 Jun 2026**~~ — **resolved on the second pass (11 Sep 2026):** DOT extended the pause to **7 July 2027** (91 FR 41556); see §8.
+
+---
+
+## 13. Second pass — later on 11 September 2026 (this session)
+
+Every load-bearing claim was re-verified from scratch in a separate session, fetching each official page again. Result:
+
+**Re-verified directly, unchanged and correct:**
+- Conditions of Carriage Art. 11 §1-A, §1-C-1-C), §4-A, §4-B-1, §5-B-1, §6-A; Art. 12 §1, §2-B (incl. the "now-show" typo) — https://www.airpremia.com/a/en/terms/transit (chunks read: 7, 8, 9)
+- Fare notes — https://www.airpremia.com/a/ko/ticket/fare (DIRECT this session; the English URL returned only the penalty-lookup widget shell on this pass, so the English quotations in `index.html` rest on the first pass's direct read plus this Korean direct read of the same page — same content, two languages)
+- Seat page — 48-hour rule, USD prices, currency-by-first-departure — https://www.airpremia.com/a/en/support/ssr/pre-seat
+- Damage-relief plan — Article 61 basis, "Delay in the refund of cancelled flight tickets", customercare@airpremia.com, postal address, 14/60-day deadline, appeal to Korea Consumer Protection Agency, mandatory form — https://www.airpremia.com/us/en/damage-relief
+- Damage-relief form PDF — bilingual, F-AS-509, "Delayed payment of refund for cancelled flight ticket" checkbox — fetched and read
+- Notices 777 (2 Sep 2026, Nov Mondays→Wednesdays, free change ±7 days or full refund penalty waived, contact block with support@airpremia.com), 725 (Sat renumbering 11 Jul–24 Oct 2026), 696 (28 Apr 2026, July day-shifts incl. Sat 18 Jul SFO), 548 (24 Jun 2025), 440 (18 Feb 2025) — all fetched and read; none covers 31 Oct or 22 Nov 2026
+- Web-accessibility page — cs@airpremia.com, 213-221-3786, KST hours
+- Special-services page — all four reservation numbers, "Cancellation is free within 24 hours", <48h seat/baggage purchases cancelled but not refunded — **read directly this session (previously indexed only)**
+- US DOT refunds page — all 3 chunks: cancellation/significant-change refund rights, 6-hour international thresholds, ancillary refunds incl. advance seat selection, non-refundable-ticket rule, 24-hour rule incl. OTA exclusion, 7-business-day credit-card refunds, merchant-of-record rule; page footer "Last updated: Friday, November 7, 2025"
+- eCFR Part 260 — TOC, authority (89 FR 32832), "up to date as of 9/09/2026, last amended 9/03/2026"
+- FTC credit-dispute page — FCBA 60/30/90-day framework, withhold-only-the-disputed-amount, credit balances (7 business days / 6 months)
+- Federal Register 2025-22140 (90 FR 55999) and **2026-13675 (91 FR 41556, 7 Jul 2026)** — the renumbering pause and its one-year extension to 7 July 2027. **Both read directly. The first pass's link to the original was malformed and has been fixed.**
+- Tariff PDF — **all 8 chunks read**; quotes corrected and upgraded to DIRECT (see §7)
+- SFO airport directory page — read directly; corroborates the Air Premia phone block and hours
+- Reddit threads 1j8ii8y, 1jas53e, 18q01vn, 1j9c19a — quotations re-verified verbatim against fresh search-indexed copies; two new items found and added (an "$80 fee and no waive" counter-anecdote; a Mar 2026 "change of operational plan" cancellation thread)
+- Fake-number warning — re-confirmed: +1-833-276-8021 appears only in spam documents (e.g. an archive.org-uploaded PDF), not on any airpremia.com page
+- GitHub Pages — API re-checked: `"status":"built"`, publishing branch `main`, path `/`, HTTPS enforced
+
+**Found and fixed (also listed in `index.html` §02):**
+1. Tariff "Rule 90" quotation had spliced clauses (1) and (3) — corrected; location properly attributed to Rule 2, Penalties category 16; clause (3)'s schedule-change right now cited.
+2. Federal Register link malformed (404) — fixed; and the previously unresolvable flag about the pause's expiry **resolved**: extended to 7 July 2027.
+3. Economy Flex Americas penalty currency ambiguity (€130 vs $130 in the third-party corroboration) — flagged in the fees table.
+4. Kayak rating drift — reworded to the figure actually observed.
+5. Email 1 reworded to make it unmistakably an **inquiry**: it now states explicitly that nothing should be cancelled or processed until the user confirms in writing, and that they would rather keep the tickets than lose money to a penalty.
+
+**Still open (unchanged):** fare family, booking channel, amounts paid, return flight number, the 7 Nov 2026 operating question, refund processing time, and the statement issue date — all listed in §11 items 1–8.
 
 ---
 
@@ -284,4 +330,6 @@ Source: https://com.airpremiacdn.net/resources/onepoint/documents/YP-General%20R
 | 7 | Tariff quoted as "death or illness" | Quoted exactly as printed — "death of illness" — typo noted |
 | 8 | Upgrade-credit option in Rule 90(a)(4) not mentioned | Added as policy item 13 |
 | 9 | Seat prices not stated | Published USD seat prices added, with the refund range labelled as arithmetic, not fact |
+| 10 | US phone numbers labelled only "via cache" | Sourced to specific airpremia.com pages, with each number's published hours |
+ Published USD seat prices added, with the refund range labelled as arithmetic, not fact |
 | 10 | US phone numbers labelled only "via cache" | Sourced to specific airpremia.com pages, with each number's published hours |
